@@ -22,11 +22,12 @@ public class LinkedListUtil {
 
     }
 
-    public static ListNode makeSampleLinkedList() {
+    public static ListNode makeSampleLinkedList(int n) {
         ListNode head = new ListNode(1);
+        if(n == 1) return head;
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
-        for(int i = 2; i <=5; i++) {
+        for(int i = 2; i <=n; i++) {
             head.next = new ListNode(i);
             head = head.next;
         }

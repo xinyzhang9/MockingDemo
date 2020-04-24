@@ -5,7 +5,7 @@ import org.junit.Test;
 public class LinkedListUtilTest {
     @Test
     public void testPrint() {
-        ListNode head = LinkedListUtil.makeSampleLinkedList();
+        ListNode head = LinkedListUtil.makeSampleLinkedList(5);
         String res = LinkedListUtil.print(head);
         assertEquals("[1,2,3,4,5]", res);
     }
