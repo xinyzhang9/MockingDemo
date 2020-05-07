@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 public class LinkedListUtil {
+    private LinkedListUtil() {}
     public static String print(ListNode node) {
         ListNode dummy = new ListNode(-1);
         dummy.next = node;
@@ -30,6 +31,16 @@ public class LinkedListUtil {
         for(int i = 2; i <=n; i++) {
             head.next = new ListNode(i);
             head = head.next;
+        }
+        return dummy.next;
+    }
+
+    public static ListNode makeLinkedListFromArray(int[] arr) {
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
+        for(int val:arr) {
+            cur.next = new ListNode(val);
+            cur = cur.next;
         }
         return dummy.next;
     }
