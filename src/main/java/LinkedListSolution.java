@@ -113,5 +113,45 @@ public class LinkedListSolution {
         return y;
     }
 
+    public ListNode mergeTwoSortedList(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
+        ListNode h1 = l1;
+        ListNode h2 = l2;
+        while(h1 != null && h2 != null) {
+            if(h1.val < h2.val) {
+                cur.next = h1;
+                h1 = h1.next;
+            } else {
+                cur.next = h2;
+                h2 = h2.next;
+            }
+            cur = cur.next;
+        }
+        while(h1 != null) {
+            cur.next = h1;
+            h1 = h1.next;
+            cur = cur.next;
+        }
+
+        while(h2 != null) {
+            cur.next = h2;
+            h2 = h2.next;
+            cur = cur.next;
+        }
+        return dummy.next;
+    }
+
+    public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) return true;
+        }
+        return false;
+    }
+
     
 }

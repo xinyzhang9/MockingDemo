@@ -81,5 +81,38 @@ public class LinkedListSolutionTest {
         assertEquals(true, res);
     }
 
+    @Test
+    public void mergeTwoSortedList() {
+        ListNode l1 = LinkedListUtil.makeLinkedListFromArray(new int[]{1,2,3});
+        ListNode l2 = LinkedListUtil.makeLinkedListFromArray(new int[]{1,3,4});
+        ListNode res = solution.mergeTwoSortedList(l1, l2);
+        assertEquals("[1,1,2,3,3,4]", LinkedListUtil.print(res));
+
+    }
+
+    @Test
+    public void hasCycle_true() {
+        ListNode h1 = new ListNode(1);
+        ListNode h2 = new ListNode(2);
+        ListNode h3 = new ListNode(3);
+        h1.next = h2;
+        h2.next = h3;
+        h3.next = h1;
+        Boolean res = solution.hasCycle(h1);
+        assertEquals(true, res);
+    }
+
+    @Test
+    public void hasCycle_false() {
+        ListNode h1 = new ListNode(1);
+        ListNode h2 = new ListNode(2);
+        ListNode h3 = new ListNode(3);
+        h1.next = h2;
+        h2.next = h3;
+        h3.next = null;
+        Boolean res = solution.hasCycle(h1);
+        assertEquals(false, res);
+    }
+
 
 }
