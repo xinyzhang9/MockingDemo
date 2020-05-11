@@ -60,4 +60,28 @@ public class StringSolution {
         }
         return cur;
     }
+
+    public String longestCommonPrefix(String[] strs) {
+        if(strs == null || strs.length < 1) return "";
+        return longestCommonPrefix(strs, 0, strs.length-1);    
+    }
+
+    private String longestCommonPrefix(String[] strs, int l, int r) {
+        if(l == r) return strs[l];
+        int mid = l+(r-l)/2;
+        String lcpLeft = longestCommonPrefix(strs, l, mid);
+        String lcpRight = longestCommonPrefix(strs, mid+1, r);
+        return commonPrefix(lcpLeft, lcpRight);
+    }
+
+    private String commonPrefix(String a, String b) {
+        int min = Math.min(a.length(), b.length());
+        for(int i = 0; i < min; i++) {
+            if(a.charAt(i) != b.charAt(i)) {
+                return a.substring(0, i);
+            }
+        }
+        return a.substring(0, min);
+    }
+
 }   
